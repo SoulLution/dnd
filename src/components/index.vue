@@ -1,7 +1,11 @@
 <template>
   <div class="list min-h-screen justify-start">
     <div class="content flex-col justify-start">
-      <div class="items-end">
+      <div class="flex-row justify-between">
+        <div class="flex-row w-auto">
+          <h2>Функция Drag&Drop</h2>
+          <div class="switch" :class="{'active': dragndrop}" @click="dragndrop = !dragndrop"></div>
+        </div>
         <router-link to="/create">Создать новый</router-link>
       </div>
       <div class="carts flex-row flex-wrap justify-start items-start">
@@ -264,5 +268,34 @@ export default {
   a:hover:before, a:hover:after{
     left: 150%;
     transition: 0.6s;
+  }
+  .switch{
+    width: 100px;
+    height: 50px;
+    background-color: #00000018;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: 0.3s;
+  }
+  .switch:after{
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    min-height: 40px;
+    min-width: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+    background-color: #00000056;
+  }
+  .switch.active{
+    background-color: #5b5bff38;
+  }
+  .switch.active:after{
+    left: 55px;
+    background-color: #5b5bff;
   }
 </style>
